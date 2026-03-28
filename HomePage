@@ -1,1 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name | Personal Website</title>
+  <style>
+    :root {
+      --bg: #f7f5f2;
+      --card: rgba(255, 255, 255, 0.78);
+      --text: #2e2a27;
+      --muted: #6e6762;
+      --line: rgba(46, 42, 39, 0.10);
+      --accent: #8c6f5a;
+      --accent-soft: #ede4dc;
+      --shadow: 0 10px 30px rgba(50, 40, 35, 0.08);
+      --radius: 22px;
+      --maxw: 980px;
+    }
 
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Georgia", "Times New Roman", serif;
+      background:
+        radial-gradient(circle at top left, #f2ebe5 0%, transparent 30%),
+        radial-gradient(circle at top right, #efe6de 0%, transparent 25%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+
+    a:hover {
+      opacity: 0.75;
+    }
+
+    .container {
+      width: min(92%, var(--maxw));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 28px 0 10px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 0.97rem;
+    }
+
+    .hero {
+      padding: 70px 0 36px;
+    }
+
+    .hero-card {
+      background: var(--card);
+      border: 1px solid rgba(255,255,255,0.65);
+      box-shadow: var(--shadow);
+      border-radius: 30px;
+      padding: 48px;
+      backdrop-filter: blur(8px);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 12px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-radius: 999px;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 5vw, 4.4rem);
+      line-height: 1.08;
+      margin: 0 0 14px;
+      font-weight: 500;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      max-width: 700px;
+      color: var(--muted);
+      margin: 0 0 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: white;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.03);
+      font-size: 0.96rem;
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    section {
+      padding: 26px 0;
+    }
+
+    .section-card {
+      background: rgba(255,255,255,0.68);
+      border: 1px solid rgba(255,255,255,0.62);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 34px;
+      backdrop-filter: blur(8px);
+    }
+
+    h2 {
+      font-size: 1.65rem;
+      font-weight: 500;
+      margin: 0 0 14px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+    }
+
+    .profile-box {
+      background: rgba(255,255,255,0.72);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 22px;
+    }
+
+    .profile-photo {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      border-radius: 18px;
+      background:
+        linear-gradient(135deg, #efe3d8, #ddd0c5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #8a796c;
+      font-size: 0.98rem;
+      letter-spacing: 0.04em;
+    }
+
+    .info-list {
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .info-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .info-list li:last-child {
+      border-bottom: none;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .item {
+      padding: 18px 18px 16px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,0.55);
+    }
+
+    .item h3 {
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+      font-weight: 500;
+    }
+
+    .item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .timeline-item {
+      border-left: 2px solid var(--accent-soft);
+      padding: 4px 0 4px 18px;
+    }
+
+    .timeline-item .year {
+      font-size: 0.88rem;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .timeline-item .title {
+      font-size: 1.04rem;
+      margin-bottom: 4px;
+    }
+
+    .timeline-item .desc {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    footer {
+      padding: 36px 0 60px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.94rem;
+    }
+
+    .small-note {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-top: 14px;
+    }
+
+    @media (max-width: 820px) {
+      .about-grid,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-card,
+      .section-card {
+        padding: 26px;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="container">
+    <nav>
+      <div class="brand">Your Name</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#work">Selected Work</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div class="hero-card">
+        <div class="eyebrow">Personal Website</div>
+        <h1>Hello, I’m Your Name.</h1>
+        <p>
+          I am a researcher and scientist working at the intersection of
+          biomedical science, imaging, neuroscience, and data-driven discovery.
+          My work focuses on translating careful experimentation into meaningful
+          biological insight.
+        </p>
+        <div class="hero-actions">
+          <a class="btn primary" href="#contact">Get in touch</a>
+          <a class="btn" href="#work">View my work</a>
+        </div>
+        <div class="small-note">
+          Based in Seattle, WA · Open to scientific collaboration and professional opportunities
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="container">
+      <div class="section-card">
+        <h2>About Me</h2>
+        <p class="section-intro">
+          A brief introduction that feels warm, polished, and professional.
+        </p>
+
+        <div class="about-grid">
+          <div>
+            <p>
+              I am passionate about understanding complex biological systems
+              through a combination of experimental rigor, imaging technologies,
+              and analytical thinking. My background includes work in
+              neuroscience, Alzheimer’s disease research, advanced fluorescence
+              imaging, and quantitative analysis.
+            </p>
+            <p>
+              I enjoy building bridges between biology, technology, and clear
+              scientific storytelling. This website is a small space to share my
+              background, interests, and selected work.
+            </p>
+
+            <ul class="info-list">
+              <li><strong>Focus:</strong> Neuroscience, imaging, translational biomedical research</li>
+              <li><strong>Skills:</strong> Microscopy, immunostaining, image analysis, MATLAB, Python</li>
+              <li><strong>Interests:</strong> Alzheimer’s disease, glymphatic biology, optical methods</li>
+            </ul>
+          </div>
+
+          <div class="profile-box">
+            <div class="profile-photo">Add your photo here later</div>
+            <ul class="info-list">
+              <li><strong>Name:</strong> Your Name</li>
+              <li><strong>Role:</strong> Research Scientist / Biomedical Researcher</li>
+              <li><strong>Location:</strong> Seattle, Washington</li>
+              <li><strong>Email:</strong> your.email@example.com</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="research" class="container">
+      <div class="section-card">
+        <h2>Research Interests</h2>
+        <p class="section-intro">
+          A concise overview of the themes that define your work.
+        </p>
+
+        <div class="grid-2">
+          <div class="item">
+            <h3>Neuroscience & Disease Mechanisms</h3>
+            <p>
+              Investigating how cellular and structural changes contribute to
+              neurodegeneration, especially in Alzheimer’s disease.
+            </p>
+          </div>
+
+          <div class="item">
+            <h3>Advanced Imaging</h3>
+            <p>
+              Using fluorescence microscopy, multiplex staining, and
+              high-resolution optical approaches to visualize biological systems.
+            </p>
+          </div>
+
+          <div class="item">
+            <h3>Quantitative Analysis</h3>
+            <p>
+              Combining image-based measurement, computational tools, and careful
+              interpretation to support reproducible scientific findings.
+            </p>
+          </div>
+
+          <div class="item">
+            <h3>Translational Science</h3>
+            <p>
+              Connecting mechanistic biological research with clinically relevant
+              questions and future therapeutic directions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="container">
+      <div class="section-card">
+        <h2>Selected Work</h2>
+        <p class="section-intro">
+          You can replace these with your real projects, papers, discoveries, or positions.
+        </p>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="year">Project / Publication</div>
+            <div class="title">Title of your major work</div>
+            <div class="desc">
+              Briefly describe what you discovered, built, or analyzed, and why it matters.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="year">Research Highlight</div>
+            <div class="title">Another important contribution</div>
+            <div class="desc">
+              Summarize the scientific question, your role, and the impact of the work.
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="year">Experience</div>
+            <div class="title">Institution or role name</div>
+            <div class="desc">
+              Add a refined summary of your work, methods, and expertise developed there.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="container">
+      <div class="section-card">
+        <h2>Contact</h2>
+        <p class="section-intro">
+          Make it easy for people to reach you.
+        </p>
+
+        <div class="grid-2">
+          <div class="item">
+            <h3>Email</h3>
+            <p><a href="mailto:your.email@example.com">your.email@example.com</a></p>
+          </div>
+
+          <div class="item">
+            <h3>Google Scholar</h3>
+            <p><a href="#">Add your Google Scholar link</a></p>
+          </div>
+
+          <div class="item">
+            <h3>LinkedIn</h3>
+            <p><a href="#">Add your LinkedIn link</a></p>
+          </div>
+
+          <div class="item">
+            <h3>GitHub</h3>
+            <p><a href="#">Add your GitHub profile</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    <p>© 2026 Your Name. All rights reserved.</p>
+  </footer>
+</body>
+</html>
