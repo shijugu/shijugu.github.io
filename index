@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: #f5f2ee;
+      color: #2f2a26;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .card {
+      max-width: 680px;
+      background: white;
+      padding: 48px 36px;
+      border-radius: 18px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: 2.2rem;
+      font-weight: normal;
+    }
+    .subtitle {
+      font-size: 1rem;
+      color: #7a6f67;
+      margin-bottom: 24px;
+    }
+    p {
+      line-height: 1.7;
+      color: #4a433e;
+      margin-bottom: 24px;
+    }
+    .links a {
+      display: inline-block;
+      margin: 0 10px;
+      color: #8a6a55;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+    .links a:hover {
+      border-bottom: 1px solid #8a6a55;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Your Name</h1>
+    <div class="subtitle">Biomedical Researcher | Neuroscience | Imaging</div>
+    <p>
+      Welcome to my personal website. My work focuses on neuroscience,
+      Alzheimer’s disease, advanced microscopy, and quantitative analysis.
+    </p>
+    <div class="links">
+      <a href="mailto:your@email.com">Email</a>
+      <a href="#">Google Scholar</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">CV</a>
+    </div>
+  </div>
+</body>
+</html>
